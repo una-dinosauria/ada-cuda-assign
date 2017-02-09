@@ -40,7 +40,7 @@ eval $(python run_client.py --release --jobid $PBS_JOBID)
 echo "Program finished with exit code $? at: `date`"
 ```
 
-# TODO
+### TODOs
 
 * Query GPU status on demand
 * Add ability to assign multiple GPUs
