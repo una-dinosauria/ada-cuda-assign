@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#PBS -l walltime=10:00:00
+#PBS -l mem=8000mb
+#PBS -l gpus=1
+#PBS -W x=GRES:gpu at 1
+#PBS -q nvidia
+#PBS -e jobfiles/
+#PBS -o jobfiles/
+
+#PBS -M YOUR_EMAIL_GOES_HERE@cs.ubc.ca
+#PBS -m bea
+
+# THE PBS_GPUFILE is what we would use if we had a GPU-aware scheduler like MOAB
+echo "PBS_GPUFILE is $PBS_GPUFILE"
+
+cd $PBS_O_WORKDIR
+echo "Current working directory is `pwd`"
+
+echo "Starting run at: `date`"
+source activate tensorflow
+
+# Ask the server for a GPU and set the CUDA_VISIBLE_DEVICES variable
+cd ../cuda_server
+echo "Current working directory is `pwd`"
+eval $(python run_client.py --request --jobid $PBS_JOBID)
+cd $PBS_O_WORKDIR
+# Run the actual code you want
+python predict_3dpose.py --action Directions --epochs 200 --linear_size 1024 --num_layers 1 --dropout 1 --learning_rate 0.0001
+cd ../cuda_server
+eval $(python run_client.py --release --jobid $PBS_JOBID) # Release the GPU that we took
+cd $PBS_O_WORKDIR
+echo "Program finished with exit code $? at: `date`"
