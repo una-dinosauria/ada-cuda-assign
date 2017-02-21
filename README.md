@@ -4,7 +4,7 @@ A simple, [pyzmq](https://github.com/zeromq/pyzmq)-based server and client that 
 
 ### Server set up
 
-Someone (usually me) should be running `./run_client.py` on the head node, `ada.cs`.
+Someone (usually me) should be running `./run_server.py` on the head node, `ada.cs`.
 
 ### Client
 
