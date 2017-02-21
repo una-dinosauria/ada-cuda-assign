@@ -2,6 +2,10 @@
 
 A simple, [pyzmq](https://github.com/zeromq/pyzmq)-based server and client that perform GPU assignments on the ada cluster at UBC.
 
+### Before everything
+
+Make sure you are in the `nvusers` group (you can email the helpdesk to be added), otherwise you will not even be able to see the GPUs.
+
 ### Server set up
 
 Someone (usually me) should be running `./run_server.py` on the head node, `ada.cs`.
