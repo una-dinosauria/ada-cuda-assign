@@ -21,7 +21,7 @@ echo "Starting run at: `date`"
 source activate tensorflow
 
 # Ask the server for a GPU and set the CUDA_VISIBLE_DEVICES variable
-cd ../cuda_assigner
+cd ../cuda-assigner
 echo "Current working directory is `pwd`"
 eval $(python run_client.py --request --jobid $PBS_JOBID)
 cd $PBS_O_WORKDIR
