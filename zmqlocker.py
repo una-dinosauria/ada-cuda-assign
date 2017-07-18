@@ -20,6 +20,8 @@ class LockerServer():
     cnt    = zmq.Context()
     sck    = cnt.socket(zmq.REP)
     sck.bind( url )
+    print("Server UP!")
+    print("Listening on {}".format(url))
 
     # Always listening
     while True:
