@@ -46,6 +46,7 @@ echo "Program finished with exit code $? at: `date`"
 
 ### TODOs
 
+* HANDLE JOB ARRAYS
 * Query GPU status on demand
 * Add ability to assign multiple GPUs
 * Manually release GPUs (in case a job crashes and does not release it)
