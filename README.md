@@ -46,7 +46,7 @@ echo "Program finished with exit code $? at: `date`"
 
 ### TODOs
 
-* HANDLE JOB ARRAYS
+* ~~HANDLE JOB ARRAYS~~ fixed by [64cd9ee](https://github.com/una-dinosauria/cuda-assigner/commit/64cd9ee6d0d6182b5ba589e3e32b29e5714dff93)
 * Query GPU status on demand
 * Add ability to assign multiple GPUs
 * Manually release GPUs (in case a job crashes and does not release it)
